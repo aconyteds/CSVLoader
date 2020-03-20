@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>*@
+
+@*<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>*@
+
+<div class="row">
+    <div class="col">
+        <h2>CSV Loader</h2>
+    </div>
+</div>
+<div class="row">
+    
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Multi-user Modification</h5>
+                <div class="alert alert-secondary" id="RoleDataDropArea" style="height:8em; border:3px dashed;">
+                    <div>Drag a file here to modify multiple users.</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="input-group">
+                    <label for="roleDataInput" class="btn btn-primary">Browse</label>
+                    <input type="file" multiple=false accept=".csv" name="=roleData" id="roleDataInput" class="hidden"></input>
+                </div>
+            </div>
+        </div>        
+        @Scripts.Render("~/Scripts/jquery.filedrop.js")
+        @Scripts.Render("~/Scripts/jquery.csv.js")
+        @Scripts.Render("~/Scripts/jsGrid/jsgrid.min.js")
+        @Scripts.Render("~/Scripts/Widgets/RoleData.js")
+
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="roleModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div id="roleModalLoadIndicator" class="loading-indicator">
+                <div class="row align-items-center text-center" style="height:100%;">
+                    <div class="col" >
+                        <div class="row ">
+                            <div class="col">
+                                <h3>Loading...</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="modal-header">
+                <h5 class="modal-title">Verify User Data</h5>
+                <button type="button" class="close closefirstmodal" >
+                    &times;
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div style="height:500px;">
+                    <div class="row">
+                        <div class="col">
+                            <div id="roleModalBody"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col">
+                        <button class="btn btn-primary" id="roleModalInsertButton">Add Entry</button>
+                    </div>
+                    <div class="col text-right">
+                        Total Items: <span id="roleModalItemCounter"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="roleModalSaveButton">Save changes</button>
+                <button type="button" class="btn btn-danger closefirstmodal">Cancel Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Confirmation of Modal Close-->
+<div id="Warning" class="modal fade" role="dialog" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body alert alert-danger" style="margin-bottom:0;">
+                <div class="row text-center">
+                    <div class="col">
+                        <h3>You have unsaved changes, continue?</h3>
+                        <p>If you cancel, all changes will be lost.</p>
+                    </div>
+                </div>                
+                <div class="row align-items-center text-center">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">No, Continue Editing</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-danger confirmclosed">Yes, Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
