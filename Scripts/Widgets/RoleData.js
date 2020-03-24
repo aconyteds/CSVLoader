@@ -125,6 +125,26 @@
                 onItemInserted: function (args) {
                     //Scroll to the bottom of the grid
                     args.grid._body.scrollTop(args.grid._body[0].scrollHeight);
+                },
+                controller: {
+                    data: currData,
+                    loadData: function (filter) {
+                        //This function handles the filtering
+                        return $.grep(this.data, function (item) {
+                            //Set our default to a match being found
+                            var match = true;
+                            //Iterate through each filter
+                            for (key in filter) {
+                                //Check if the filter is the default value, if not, identify if the value exists or not
+                                if ((filter[key] !== "" && filter[key] != 0) && item[key].indexOf(filter[key]) == -1) {
+                                    //No match, set to false and break out of the loop
+                                    match = false;
+                                    break;
+                                }
+                            }
+                            return match;
+                        });
+                    },
                 }
             });
             //HACK: refresh, so that the grid is the right height when the modal is showing

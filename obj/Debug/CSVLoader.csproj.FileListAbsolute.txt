@@ -76,3 +76,4 @@ P:\_Projects\CSVLoader\CSVLoader\obj\Debug\CSVLoader.csprojAssemblyReference.cac
 P:\_Projects\CSVLoader\CSVLoader\obj\Debug\CSVLoader.csproj.CopyComplete
 P:\_Projects\CSVLoader\CSVLoader\obj\Debug\CSVLoader.dll
 P:\_Projects\CSVLoader\CSVLoader\obj\Debug\CSVLoader.pdb
+P:\_Projects\CSVLoader\CSVLoader\obj\Debug\CSVLoader.csproj.CoreCompileInputs.cache
